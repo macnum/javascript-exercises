@@ -1,16 +1,7 @@
 const palindromes = function (str) {
-  const regexPattern = /[\w\d]/;
-  const backWords = str
-    .split('')
-    .reverse()
-    .filter((letter) => regexPattern.test(letter))
-    .join('')
-    .toLowerCase();
-  const word = str
-    .match(/[\w\d]/g)
-    .join('')
-    .toLowerCase();
-  return backWords === word;
+  const cleanStr = str.toLowerCase().replace(/[^\w\d]/g, '');
+
+  return cleanStr === cleanStr.split('').reduce((rev, char) => char + rev, '');
 };
 
 // Do not edit below this line
